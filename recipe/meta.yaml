@@ -10,13 +10,11 @@ source:
   sha256: 9831f53ed6c564b59d72a047e627785139069e4bc0311d3393fd9fc6f52389bb
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
-  build:
-    - sysroot_linux-64 2.17  # [linux64]
   host:
     - python >=3.6
     - pip

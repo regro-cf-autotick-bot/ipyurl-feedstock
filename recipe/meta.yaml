@@ -24,7 +24,7 @@ requirements:
     - jupyter-packaging
   run:
     - python >=3.6
-    - ipywidgets >=7.0.0
+    - ipywidgets >=7.0.0,<8.0.0
 
 test:
   imports:

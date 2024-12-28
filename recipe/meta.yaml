@@ -6,27 +6,29 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/i/ipyurl/ipyurl-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/i/ipyurl/ipyurl-{{ version }}.tar.gz
   sha256: 080854c36a478487633fdeeae7552e8269b11b1f97f7971f433375f5faa55908
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - nodejs
     - yarn
     - jupyterlab =3
     - jupyter-packaging
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - ipywidgets >=7.0.0,<8.0.0
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - ipyurl
   commands:
